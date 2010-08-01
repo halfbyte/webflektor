@@ -62,9 +62,33 @@ class ConfigFile
 
   def check_level_element(element)
     if element > 500
-      return 100
+      return {:non_realtime , 100}
     end
-    element
+    transform_element(element)
+  end
+  
+  def transform_element(element)
+    
+    case(element)
+    when 240...256; [:mirror, element - 240]
+    when 256...264; [:grid_wood , element - 256]
+    when 264...272; [:grid_steel , element - 264]
+    when 272...288; [:wall_wood , element - 272]
+    when 288...304; [:wall_steel , element - 288]
+    when 304;       [:empty , 0]
+    when 305;       [:cell , 0]
+    when 306;       [:mine , 0]
+    when 307;       [:refractor , 0]
+    when 308...312; [:lazer , element - 308]
+    when 312...316; [:detector , element - 312]
+    when 316...324; [:fiberoptics , element - 316]
+    when 324...340; [:mirror_auto , element - 324]
+    when 340...348; [:grid_wood_auto , element - 340]
+    when 348...356; [:grid_steel_auto , element - 348]      
+    when 0; nil
+    else
+      {:unknown , element}
+    end    
   end
   
   def readString(len)

@@ -5,7 +5,6 @@
   position: absolute
   .tile
     position: absolute
-    background: transparent url(/images/df_sprites.png) 0px 0px no-repeat
     width: 32px
     height: 32px
 
@@ -20,4 +19,4 @@
   @for $h from 0 through 15
     @for $v from 0 through 15
       .gfx-#{$h}-#{$v}
-        background-position: (-32px * $h) (-32px * $v)
+        background: transparent url(/images/df_sprites.png?sdad) (-32px * $h) (-32px * $v) no-repeat
