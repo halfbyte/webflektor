@@ -298,8 +298,8 @@ $(function(){
       return nxt - ((DIRECTIONS[direction][which]) * 16);
     }
   };
-  
-  var data = $.getJSON('/level/Classic_Games/classic_deflektor/001.json', function(data) {
+
+  var initGame = function(data) {
     logger.log("loaded data. initializing screen");
     var elements = "";
     
@@ -368,6 +368,16 @@ $(function(){
       });
       lazersDo();
     }, 60);
-  });
+  };
+  var data = {
+    field: [
+      [['mirror', 4],['empty', 0], ['lazer', 2], ['empty', 0]],
+      [['mirror', 12],['empty', 0], ['empty', 0], ['wall_wood', 15]],
+      [['empty', 0],['empty', 0], ['empty', 0], ['wall_wood', 14]]
+    ],
+    last: {}
+  };
+  initGame(data);
+  // var data = $.getJSON('/level/Classic_Games/classic_deflektor/001.json', initGame);
   
 });
