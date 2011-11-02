@@ -154,9 +154,11 @@ class WallWood extends GameObject
 class WallSteel extends GameObject
   gfxClass: -> "gfx-#{@subtype}-12"
   enterBeam: (x,y,direction) ->
-    Logger.log(@enteredFrom(x,y, 8))
-    direction = @newDirection(direction, @enteredFrom(x,y, 8))
-    [x, y, direction, false, true]
+    if @pixelIsSolid(x,y)
+      direction = @newDirection(direction, @enteredFrom(x,y, 8))
+      [x, y, direction, false, true]
+    else
+      [x, y, direction, false, true]
 
   newDirection: newDirectionWall
 
@@ -247,14 +249,15 @@ class PlayField
       @gameState.click = [tile, e.which];
       false
     ).mouseup((e) =>
-      tile = @tileForEvent(e);
-      if @gameState.click? and
+      tile = @tileForEvent(e)
+      
+      if @gameState.click? and 
         @gameState.click[0][0] is tile[0] and
         @gameState.click[0][1] is tile[1] and
         @gameState.click[1] is e.which
-
-        @objects[tile[1]][tile[0]].click(e.which)
-        @gameState.click = null;
+        
+          @objects[tile[1]][tile[0]].click(e.which)
+          @gameState.click = null;
       false
     ).bind("contextmenu", (e) =>
       e.preventDefault()
