@@ -62,7 +62,7 @@ class ConfigFile
 
   def check_level_element(element)
     if element > 500
-      return {:non_realtime , 100}
+      return [:non_realtime , 100]
     end
     transform_element(element)
   end
@@ -87,7 +87,7 @@ class ConfigFile
     when 348...356; [:grid_steel_auto , element - 348]      
     when 0; nil
     else
-      {:unknown , element}
+      [:unknown , element]
     end    
   end
   

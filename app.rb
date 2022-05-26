@@ -1,7 +1,6 @@
-require 'rubygems'
 require 'sinatra'
 require 'haml'
-require 'config_file'
+require_relative './config_file'
 require 'json'
 
 get "/" do
@@ -11,6 +10,10 @@ end
 get "/screen.css" do
   content_type 'text/css', :charset => 'utf-8'
   sass :screen
+end
+
+get "/javascripts/game.js" do
+  coffee :game
 end
 
 get "/level/*.json" do

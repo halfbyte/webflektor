@@ -1,0 +1,47 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    coffee-script (2.4.1)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.12.2)
+    execjs (2.8.1)
+    ffi (1.15.5)
+    haml (5.2.2)
+      temple (>= 0.8.0)
+      tilt
+    json (2.6.2)
+    mustermann (1.1.1)
+      ruby2_keywords (~> 0.0.1)
+    rack (2.2.3)
+    rack-protection (2.2.0)
+      rack
+    rb-fsevent (0.11.1)
+    rb-inotify (0.10.1)
+      ffi (~> 1.0)
+    ruby2_keywords (0.0.5)
+    sass (3.7.4)
+      sass-listen (~> 4.0.0)
+    sass-listen (4.0.0)
+      rb-fsevent (~> 0.9, >= 0.9.4)
+      rb-inotify (~> 0.9, >= 0.9.7)
+    sinatra (2.2.0)
+      mustermann (~> 1.0)
+      rack (~> 2.2)
+      rack-protection (= 2.2.0)
+      tilt (~> 2.0)
+    temple (0.8.2)
+    tilt (2.0.10)
+
+PLATFORMS
+  x86_64-linux
+
+DEPENDENCIES
+  coffee-script (~> 2.4)
+  haml (~> 5.2)
+  json (~> 2.6)
+  sass (~> 3.7)
+  sinatra (~> 2.2)
+
+BUNDLED WITH
+   2.3.3
